@@ -1,21 +1,8 @@
 package br.com.marcos.cursomc;
 
-import java.util.Arrays;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import br.com.marcos.cursomc.domain.Cidade;
-import br.com.marcos.cursomc.domain.Cliente;
-import br.com.marcos.cursomc.domain.Endereco;
-import br.com.marcos.cursomc.domain.Estado;
-import br.com.marcos.cursomc.domain.enums.TipoCliente;
-import br.com.marcos.cursomc.repositories.CidadeRepository;
-import br.com.marcos.cursomc.repositories.ClienteRepository;
-import br.com.marcos.cursomc.repositories.EnderecoRepository;
-import br.com.marcos.cursomc.repositories.EstadoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
