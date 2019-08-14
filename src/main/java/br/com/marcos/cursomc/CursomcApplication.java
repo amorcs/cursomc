@@ -1,35 +1,8 @@
 package br.com.marcos.cursomc;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import br.com.marcos.cursomc.domain.Categoria;
-import br.com.marcos.cursomc.domain.Cidade;
-import br.com.marcos.cursomc.domain.Cliente;
-import br.com.marcos.cursomc.domain.Endereco;
-import br.com.marcos.cursomc.domain.Estado;
-import br.com.marcos.cursomc.domain.ItemPedido;
-import br.com.marcos.cursomc.domain.Pagamento;
-import br.com.marcos.cursomc.domain.PagamentoComBoleto;
-import br.com.marcos.cursomc.domain.PagamentoComCartao;
-import br.com.marcos.cursomc.domain.Pedido;
-import br.com.marcos.cursomc.domain.Produto;
-import br.com.marcos.cursomc.domain.enums.EstadoPagamento;
-import br.com.marcos.cursomc.domain.enums.TipoCliente;
-import br.com.marcos.cursomc.repositories.CategoriaRepository;
-import br.com.marcos.cursomc.repositories.CidadeRepository;
-import br.com.marcos.cursomc.repositories.ClienteRepository;
-import br.com.marcos.cursomc.repositories.EnderecoRepository;
-import br.com.marcos.cursomc.repositories.EstadoRepository;
-import br.com.marcos.cursomc.repositories.ItemPedidoRepository;
-import br.com.marcos.cursomc.repositories.PagamentoRepository;
-import br.com.marcos.cursomc.repositories.PedidoRepository;
-import br.com.marcos.cursomc.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
@@ -39,25 +12,26 @@ public class CursomcApplication implements CommandLineRunner{
 	}
 	
 
-	@Autowired
-	private CategoriaRepository categoriaRepositoty;
-	@Autowired
-	private ProdutoRepository produtoRepository;
-	@Autowired
-	private ClienteRepository clienteRepository;
-	@Autowired
-	private EnderecoRepository enderecoRepository;
-	@Autowired
-	private EstadoRepository estadoRepository;
-	@Autowired
-	private CidadeRepository cidadeRepository;
-	@Autowired
-	private PedidoRepository pedidoRepository;
-	@Autowired
-	private PagamentoRepository pagamentoRepository;
-	@Autowired
-	private ItemPedidoRepository itemPedidoRepository;
+//	@Autowired
+//	private CategoriaRepository categoriaRepositoty;
+//	@Autowired
+//	private ProdutoRepository produtoRepository;
+//	@Autowired
+//	private ClienteRepository clienteRepository;
+//	@Autowired
+//	private EnderecoRepository enderecoRepository;
+//	@Autowired
 	
+//	private EstadoRepository estadoRepository;
+//	@Autowired
+//	private CidadeRepository cidadeRepository;
+//	@Autowired
+//	private PedidoRepository pedidoRepository;
+//	@Autowired
+//	private PagamentoRepository pagamentoRepository;
+//	@Autowired
+//	private ItemPedidoRepository itemPedidoRepository;
+//	
 	@Override
 	public void run(String... args) throws Exception {
 		

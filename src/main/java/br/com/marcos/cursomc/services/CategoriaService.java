@@ -12,10 +12,15 @@ import br.com.marcos.cursomc.repositories.CategoriaRepository;
 @Service
 public class CategoriaService {
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaRepository categoriaRepository;
 	
 	public Categoria buscarPorId(Integer id)  {
-		Optional<Categoria> categoria = repository.findById(id);
+		Optional<Categoria> categoria = categoriaRepository.findById(id);
 		return categoria.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado " +id, Categoria.class.getName()));
+	}
+
+	public Categoria inserirCategoria(Categoria categoria) {
+		categoria.setId(null);
+		return categoriaRepository.save(categoria);
 	}
 }

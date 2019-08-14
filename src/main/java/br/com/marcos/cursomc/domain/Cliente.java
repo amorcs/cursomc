@@ -109,7 +109,7 @@ public class Cliente implements Serializable{
 		this.pedidos = pedidos;
 	}
 	
-	//hasCode and equals
+//hasCode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
