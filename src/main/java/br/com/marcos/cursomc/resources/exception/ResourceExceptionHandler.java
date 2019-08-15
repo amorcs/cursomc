@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import br.com.marcos.cursomc.services.exceptions.DataIntegrityService;
+
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	
@@ -17,4 +19,11 @@ public class ResourceExceptionHandler {
 				StandardError error = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 		}
+	
+	@ExceptionHandler(DataIntegrityService.class)
+	public ResponseEntity<StandardError> dataIntegrity(
+				DataIntegrityService e, HttpServletRequest request){
+				StandardError error = new StandardError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
+}

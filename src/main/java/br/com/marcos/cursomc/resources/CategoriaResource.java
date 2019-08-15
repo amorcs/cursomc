@@ -1,9 +1,14 @@
 package br.com.marcos.cursomc.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.marcos.cursomc.domain.Categoria;
+import br.com.marcos.cursomc.dto.CategoriaDTO;
 import br.com.marcos.cursomc.services.CategoriaService;
 
 @RestController
@@ -45,4 +51,22 @@ public class CategoriaResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	@DeleteMapping(value = "/{id}")
+	@Transactional
+	public ResponseEntity<Void> deletarCategoria(@PathVariable Integer id){
+		categoriaService.deletarCategoria(id);
+		return ResponseEntity.ok().build(); 
+		
+	}
+	
+	@GetMapping()
+	public ResponseEntity<List<CategoriaDTO>> listarCategorias(){
+		List<Categoria> categorias = categoriaService.buscarTodos();
+		
+		List<CategoriaDTO> categoriasDTO = categorias.stream().map(categoria -> new CategoriaDTO(categoria)).collect(Collectors.toList());
+		
+		return ResponseEntity.ok().body(categoriasDTO);
+		
+	}
+	
 }

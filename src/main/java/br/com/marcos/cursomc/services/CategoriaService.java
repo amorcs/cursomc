@@ -1,5 +1,6 @@
 package br.com.marcos.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -27,5 +28,19 @@ public class CategoriaService {
 	public Categoria atualizarCategoria(Categoria categoria) {
 		buscarPorId(categoria.getId());
 		return categoriaRepository.save(categoria);
+	}
+
+	public void deletarCategoria(Integer id) {
+		Categoria categoria = buscarPorId(id);
+			if (categoria.getProdutos().isEmpty()) {
+				categoriaRepository.deleteById(id);	
+			}else {
+				System.out.println("objeto não deletado");
+			}
+	
+	}
+
+	public List<Categoria> buscarTodos() {
+		return categoriaRepository.findAll();
 	}
 }
