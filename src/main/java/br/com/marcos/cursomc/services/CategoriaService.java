@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import br.com.marcos.cursomc.domain.Categoria;
 import br.com.marcos.cursomc.dto.CategoriaDTO;
 import br.com.marcos.cursomc.repositories.CategoriaRepository;
+import br.com.marcos.cursomc.services.exceptions.DataIntegrityService;
 
 @Service
 public class CategoriaService {
@@ -39,7 +40,7 @@ public class CategoriaService {
 			if (categoria.getProdutos().isEmpty()) {
 				categoriaRepository.deleteById(id);	
 			}else {
-				System.out.println("objeto não deletado");
+				throw new DataIntegrityService("não é possível deletar objetos relacionados");
 			}
 	
 	}
